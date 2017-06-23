@@ -27,7 +27,6 @@ from sqlalchemy.schema import(
 	)
 from sqlalchemy.schema import DropTable
 from sqlalchemy.ext.compiler import compiles
-from sqlalchemy.databases import postgres
 app = create_app(run_as_server=False)
 
 def setup_alembic_config():
@@ -59,7 +58,7 @@ def db_rebuild():
         db.drop_all()
 	#db_DropEverything(db)
 	#_compile_drop_table(db)
-       # db.create_all()
+        db.create_all()
         # then, load the Alembic configuration and generate the
         # version table, "stamping" it with the most recent rev:
         setup_alembic_config()
